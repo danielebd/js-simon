@@ -28,7 +28,6 @@ function myprompt(prtNumb) {
 
 
 const arrayMemoryNumber = createRandomNumber(5)
-console.log(arrayMemoryNumber);
 
 //
 //console.log(elementMemo)
@@ -48,7 +47,10 @@ const memory = setInterval(function () {
 }, 1000);
 
 
-let elementGuess = [];
+let elementGuess;
 const guess = setTimeout(function () {
-    elementGuess.push(parseInt(myprompt(5)));
-}, seconds * 1050)
+    elementGuess = myprompt(5)
+    console.log(elementGuess);
+    console.log(arrayMemoryNumber);
+}, seconds * 1100)
+
