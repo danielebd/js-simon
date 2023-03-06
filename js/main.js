@@ -16,6 +16,7 @@ function createRandomNumber(ranNumb) {
     return arrayMemoryNumber;
 }
 
+//CREAZIONE PROMPT
 function myprompt(prtNumb) {
     const number = [];
     for (let i = 0; i < prtNumb; i++) {
@@ -25,14 +26,20 @@ function myprompt(prtNumb) {
     return number
 }
 
-console.log(myprompt(5))
 
-createRandomNumber(5)
-let seconds = 2;
+const arrayMemoryNumber = createRandomNumber(5)
+console.log(arrayMemoryNumber);
+
+//
+//console.log(elementMemo)
+//console.log(elementGuess);
+
+
+let seconds = 5;
 const memory = setInterval(function () {
     console.log(seconds);
     if (seconds === 0) {
-        clearInterval(clock)
+        clearInterval(memory)
         document.getElementById('memory-number').classList.add('none')
     }
     else {
@@ -41,7 +48,7 @@ const memory = setInterval(function () {
 }, 1000);
 
 
-
-
-
-
+let elementGuess = [];
+const guess = setTimeout(function () {
+    elementGuess.push(parseInt(myprompt(5)));
+}, seconds * 1050)
