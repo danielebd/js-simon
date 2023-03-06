@@ -26,15 +26,9 @@ function myprompt(prtNumb) {
     return number
 }
 
+const arrayMemoryNumber = createRandomNumber(5);
 
-const arrayMemoryNumber = createRandomNumber(5)
-
-//
-//console.log(elementMemo)
-//console.log(elementGuess);
-
-
-let seconds = 5;
+let seconds = 30;
 const memory = setInterval(function () {
     console.log(seconds);
     if (seconds === 0) {
@@ -50,7 +44,18 @@ const memory = setInterval(function () {
 let elementGuess;
 const guess = setTimeout(function () {
     elementGuess = myprompt(5)
-    console.log(elementGuess);
+
+    console.log(elementGuess.length);
     console.log(arrayMemoryNumber);
+    const correctNumber = [];
+    for (let i = 0; i < elementGuess.length; i++){
+        if(arrayMemoryNumber.includes(elementGuess[i])){
+            correctNumber.push(elementGuess[i]);
+        }
+    }
+    console.log(correctNumber.length);
+    document.getElementById('result').innerHTML = `hai indovinato ${correctNumber.length} numeri`;
+    document.getElementById('quali').innerHTML = `i numeri indovinati sono ${correctNumber}`;
+    document.getElementById('memory-number').classList.remove('none')    
 }, seconds * 1100)
 
